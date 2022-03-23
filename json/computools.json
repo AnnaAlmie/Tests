@@ -1,0 +1,561 @@
+{
+    "info": {
+        "_postman_id": "bbe0ae79-9426-4955-a0cf-5fe4adafe200",
+        "name": "Valorant Tournaments API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Register",
+            "id": "fc12fc7e-9765-419f-8425-1a3f23a1d8a2",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userName\": \"VitoFromEarth\",\n    \"password\": \"iamthegamesc7\",\n    \"email\": \"vk@computools.com\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/auth/register"
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "id": "329f27ca-0e29-46ad-8e5d-474eaa7539a1",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userName\": \"VitoFromEarth\",\n    \"password\": \"iamthegamesc7\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/auth/login"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Current user",
+            "id": "f8a6decd-dfc4-45a1-862c-8ee3dffea970",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9BZG1pbiIsImlhdCI6MTYyMDA2NTQ3NiwiZXhwIjoxNjIwMTUxODc2fQ.GWuNSSo9voLS2p3W5Ooxg9q-Tc7L6epHpUwxqlbGV2o"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/auth/me"
+            },
+            "response": []
+        },
+        {
+            "name": "Verify user",
+            "id": "08131625-5a4e-4026-8901-a091d84800e4",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAwNjY4MzEsImV4cCI6MTYyMDE1MzIzMX0.PcLxGj1HKvM31suCWJCxRpc2ZperEd-p_szqzHgQIHg"
+                    }
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"isVerified\": true\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/users/verify/f5e2311f-037a-4a1c-96d4-59d94030fccb"
+            },
+            "response": []
+        },
+        {
+            "name": "Find user by id",
+            "id": "4d56d2b1-0f16-4693-8ce7-1bbd73c66e76",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAwNzYwMjIsImV4cCI6MTYyMDE2MjQyMn0.LCDHu8z26gNydZVVPd6B6g9Xun9KZS57fyqbaPale20"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/users/"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Discord Profile",
+            "id": "7c715d5e-7ff5-4f95-8939-24370a4a3057",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAwNzYwMjIsImV4cCI6MTYyMDE2MjQyMn0.LCDHu8z26gNydZVVPd6B6g9Xun9KZS57fyqbaPale20"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"userName\": \"VitoFromEarth#RU1\",\r\n    \"serverName\": \"Пивная Таверна\",\r\n    \"serverLink\": \"https://discord.gg/Rk9SdJXs\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/discord-profile/create"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Discord Profiles",
+            "id": "7c66178e-1d25-4511-bb42-1a7401c504da",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAxMjQ3MDAsImV4cCI6MTYyMDIxMTEwMH0.hM-ITdAm8Q824RWA6tEIwd7qFQT4gZdRR95xAZZu2Ts"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{API_URL}}:3000/discord-profile/all?amount=1&page=1",
+                    "host": [
+                        "{{API_URL}}"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "discord-profile",
+                        "all"
+                    ],
+                    "query": [
+                        {
+                            "key": "amount",
+                            "value": "1"
+                        },
+                        {
+                            "key": "page",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Discord Profile",
+            "id": "8ed3d90e-0ade-4a79-9d91-9af6406ef64e",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAxMjQ3MDAsImV4cCI6MTYyMDIxMTEwMH0.hM-ITdAm8Q824RWA6tEIwd7qFQT4gZdRR95xAZZu2Ts"
+                    }
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"serverName\": \"Pivo\" \r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/discord-profile/83e847c6-a218-483d-969c-5feb7bd7c781"
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Discord profile",
+            "id": "416294c5-828b-44d0-89c9-cf8af07c9d3c",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAxMjQ3MDAsImV4cCI6MTYyMDIxMTEwMH0.hM-ITdAm8Q824RWA6tEIwd7qFQT4gZdRR95xAZZu2Ts"
+                    }
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": "{{API_URL}}:3000/discord-profile/83e847c6-a218-483d-969c-5feb7bd7c781"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Valorant Account",
+            "id": "ec0d9093-6243-4e97-8390-e2b507908e9c",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzYxOTc3LCJleHAiOjE2MjA4NDgzNzd9.LkY7Df57EibkEEc3Ue_gmM9WL-WyBa_sxMQNiHCeG08"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"userName\": \"VitoFromEarth#RU22\",\r\n    \"currentRank\": 2,\r\n    \"maxRank\": 2,\r\n    \"isPrimaryAccount\": true\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/valorant-profile/create"
+            },
+            "response": []
+        },
+        {
+            "name": "Get all Valorant accounts",
+            "id": "4b0361ab-ae3f-48f1-ab5e-0e3b1058d9a2",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAxMzU3NTksImV4cCI6MTYyMDIyMjE1OX0.C59bSsWpD6bJ-vbltkDRqvQTJruG_CqpUVKCOI6up2s"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{API_URL}}:3000/valorant-profile/all?amount=1&page=1",
+                    "host": [
+                        "{{API_URL}}"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "valorant-profile",
+                        "all"
+                    ],
+                    "query": [
+                        {
+                            "key": "amount",
+                            "value": "1"
+                        },
+                        {
+                            "key": "page",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Valorant Profile",
+            "id": "ff8b781c-b015-4075-aad7-76309ee3bf09",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAxNDM3MjQsImV4cCI6MTYyMDIzMDEyNH0.OFA9bdMUO6x3jKZS8fkSs0-HoZmz8t0CTCOyeQRMaTE"
+                    }
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": "{{API_URL}}:3000/valorant-profile/765ffbc2-1262-4b72-9859-21296300dbf3"
+            },
+            "response": []
+        },
+        {
+            "name": "Update Valorant Profile",
+            "id": "42806d98-302f-49c7-8dec-886980875b4f",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgxIiwiaWF0IjoxNjIwMTQ1MzgxLCJleHAiOjE2MjAyMzE3ODF9.RcO2QMSaVuicRjpuT7GkP8gr0yRmLiyDykkHsthgbzs"
+                    }
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"userName\": \"VitoFromEarth#RU1\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/valorant-profile/69549bd2-cc87-4ced-a0d5-6b219e52ab88"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Event",
+            "id": "bc6f88f4-e120-4a23-a1d6-dbdfdccf11f7",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAzOTYwMzUsImV4cCI6MTYyMDQ4MjQzNX0.dsyh-C-umNxwVkHoepFWzHDJB0fqZDv9ymxO_Sjp_t0"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"name\": \"Valorant tournament\",\r\n    \"type\": \"internal\",\r\n    \"status\": \"active\",\r\n    \"startDate\": \"\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/events/"
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Events",
+            "id": "bdba9fbd-82cf-493d-9991-a7a9fc128365",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAzOTYwMzUsImV4cCI6MTYyMDQ4MjQzNX0.dsyh-C-umNxwVkHoepFWzHDJB0fqZDv9ymxO_Sjp_t0"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/events/"
+            },
+            "response": []
+        },
+        {
+            "name": "Get one event",
+            "id": "bd263f36-a9de-43b8-9fcf-af0b8ab576f8",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAzOTYwMzUsImV4cCI6MTYyMDQ4MjQzNX0.dsyh-C-umNxwVkHoepFWzHDJB0fqZDv9ymxO_Sjp_t0"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/events/ef08897a-582e-4249-adb3-4c0587a08cea"
+            },
+            "response": []
+        },
+        {
+            "name": "Add user to event (players who want to play)",
+            "id": "e6a5f540-67c0-41ea-abe8-73ed0afa2e73",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAzOTYwMzUsImV4cCI6MTYyMDQ4MjQzNX0.dsyh-C-umNxwVkHoepFWzHDJB0fqZDv9ymxO_Sjp_t0"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"userId\": \"c2aecd80-5904-4e8d-9419-b8f9a2ad6cf9\",\r\n    \"eventId\": \"ef08897a-582e-4249-adb3-4c0587a08cea\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/events/add-user-to-event"
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Event",
+            "id": "3b740056-3a20-4ae4-8826-406b33517ece",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgiLCJpYXQiOjE2MjAzOTYwMzUsImV4cCI6MTYyMDQ4MjQzNX0.dsyh-C-umNxwVkHoepFWzHDJB0fqZDv9ymxO_Sjp_t0"
+                    }
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": "{{API_URL}}:3000/events/ef08897a-582e-4249-adb3-4c0587a08cea"
+            },
+            "response": []
+        },
+        {
+            "name": "Update Event",
+            "id": "f86f0465-7d87-450c-b3df-a571f96043ab",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlZpdG9Gcm9tRWFydGgxIiwiaWF0IjoxNjIwMzk5NDQ2LCJleHAiOjE2MjA0ODU4NDZ9.ByIdCMHf-4cftxIchH6v-MseZuDZxQ-nN4RUzg-roRA"
+                    }
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"name\": \"Valorant event\",\r\n    \"status\": \"finished\",\r\n    \"type\": \"internal\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/events/2caee08e-aae1-4ee7-b016-4961dd8a297b"
+            },
+            "response": []
+        },
+        {
+            "name": "Create a match",
+            "id": "998af402-e31b-4e02-a555-44bde5da5dc4",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzMwNjcyLCJleHAiOjE2MjA4MTcwNzJ9.nJ0ruanVwsR6h08eHvuXPAYl_P_LXq4CKqq0Vr2q2Kg"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"number\": 1,\n    \"status\": \"pending\",\n    \"eventId\": \"7b08f2fb-8d8a-407c-a75f-177271f20220\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/match/"
+            },
+            "response": []
+        },
+        {
+            "name": "Get all matches",
+            "id": "ade2318d-cea3-4793-9229-9ba68bceccf5",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzMwNjcyLCJleHAiOjE2MjA4MTcwNzJ9.nJ0ruanVwsR6h08eHvuXPAYl_P_LXq4CKqq0Vr2q2Kg"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/match/"
+            },
+            "response": []
+        },
+        {
+            "name": "Get one match",
+            "id": "ca6d03e1-2178-4cf3-927e-86293e0cf639",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzMwNjcyLCJleHAiOjE2MjA4MTcwNzJ9.nJ0ruanVwsR6h08eHvuXPAYl_P_LXq4CKqq0Vr2q2Kg"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/match/07686af6-7b5e-4382-9466-52459b212d07"
+            },
+            "response": []
+        },
+        {
+            "name": "Get all matches by Event id",
+            "id": "3ea35acc-559d-4643-96eb-0710bcbc5a25",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzMwNjcyLCJleHAiOjE2MjA4MTcwNzJ9.nJ0ruanVwsR6h08eHvuXPAYl_P_LXq4CKqq0Vr2q2Kg"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "{{API_URL}}:3000/match/all/by-event/7b08f2fb-8d8a-407c-a75f-177271f20220"
+            },
+            "response": []
+        },
+        {
+            "name": "Add player to team!",
+            "id": "96b764a2-f131-4765-8ece-e80abfd6d576",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzMwNjcyLCJleHAiOjE2MjA4MTcwNzJ9.nJ0ruanVwsR6h08eHvuXPAYl_P_LXq4CKqq0Vr2q2Kg"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"teamId\": \"9d5906a1-8a12-4eaa-a3b0-969235cee703\",\n    \"userId\": \"f0446581-0f44-4b30-98ad-02bef7bd5f97\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/team/add-player"
+            },
+            "response": []
+        },
+        {
+            "name": "Switch player team",
+            "id": "1d02c182-26cd-41bc-980b-42bb15cdf927",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRlc3RVc2VyIiwiaWF0IjoxNjIwNzMwNjcyLCJleHAiOjE2MjA4MTcwNzJ9.nJ0ruanVwsR6h08eHvuXPAYl_P_LXq4CKqq0Vr2q2Kg"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"removeTeamId\": \"9d5906a1-8a12-4eaa-a3b0-969235cee703\",\n    \"userId\": \"f0446581-0f44-4b30-98ad-02bef7bd5f97\",\n    \"addTeamId\": \"a7029f90-fc48-4f70-9cb2-341bd28e40c7\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{API_URL}}:3000/team/switch-player-team"
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "id": "24e6f085-c04e-4fcb-8740-e5c8bc64b47e",
+            "key": "url_remote",
+            "value": "134.209.242.132"
+        }
+    ]
+}

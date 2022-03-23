@@ -1,0 +1,15 @@
+body {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.textlink {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  @include transitionAll;
+
+  &:hover {
+    color: #2563eb;
+  }
+}
