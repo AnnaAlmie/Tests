@@ -153,7 +153,7 @@ export default {
 
   &__button {
     &s {
-      @include flexBetween;
+      @include flexBetweenCenter;
     }
     cursor: pointer;
     width: calc(50% - 10px);

@@ -37,7 +37,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss', '@nuxtjs/svg'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -67,6 +67,7 @@ export default {
           autoFetch: true
         }, 
         endpoints: {
+          // propertyName: 'the name of the token object that comes back from this API request'
           login: { url: 'auth/login', method: 'post', propertyName: 'accessToken' },
           logout: { url: 'auth/login', method: 'get' },
           user: { url: 'auth/me', method: 'get', propertyName: '' }

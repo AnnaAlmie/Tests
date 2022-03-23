@@ -23,7 +23,7 @@
         <div v-if="!isAuthenticated" class="link" @click="popup = true">
           Log in
         </div>
-        <div v-else class="link" @click="$auth.logout()">
+        <div v-else class="link" @click="logout()">
           {{ loggedInUser.userName }} | Log out
         </div>
       </div>
@@ -55,6 +55,12 @@ export default {
   computed: {
     ...mapGetters(["isAuthenticated", "loggedInUser"]),
   },
+  methods: {
+    logout() {
+      this.$auth.logout();
+      this.$router.push("/computools");
+    },
+  },
 };
 </script>
 
@@ -63,7 +69,7 @@ export default {
   text-transform: uppercase;
   white-space: nowrap;
   height: 50px;
-  @include flexBetween;
+  @include flexBetweenCenter;
   .logo__link {
     @include flexStartCenter;
     height: 100%;

@@ -1,3 +1,4 @@
+//start
 @mixin flexStart {
   display: flex;
   justify-content: flex-start;
@@ -10,32 +11,36 @@
   align-items: center;
 }
 
-@mixin flexEndCenter {
+@mixin flexStartEnd {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin flexBetween {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+//between
 @mixin flexBetweenStart {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-@mixin flexStartEnd {
+@mixin flexBetweenCenter {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+//center
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//end
+@mixin flexEndCenter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
