@@ -43,15 +43,37 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios', '@nuxtjs/style-resources'
+    '@nuxtjs/axios', 
+    '@nuxtjs/auth', 
+    '@nuxtjs/style-resources'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://134.209.242.132:3000/',
   },
-
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          type: 'Bearer',
+          required: true
+        },
+        user: {
+          property: 'user',
+          autoFetch: true
+        }, 
+        endpoints: {
+          login: { url: 'auth/login', method: 'post', propertyName: 'accessToken' },
+          logout: { url: 'auth/login', method: 'get' },
+          user: { url: 'auth/me', method: 'get', propertyName: '' }
+        }
+      }
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ["vee-validate/dist/rules"],

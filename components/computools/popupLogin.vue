@@ -15,7 +15,7 @@
             v-slot="{ errors }"
           >
             <div class="input__row" :class="{ error: errors[0] }">
-              <input v-model.lazy="form.name" type="text" placeholder="Name*" />
+              <input v-model.lazy="userName" type="text" placeholder="Name*" />
               <span>{{ errors[0] }}</span>
             </div>
           </ValidationProvider>
@@ -27,11 +27,7 @@
             v-if="registration"
           >
             <div class="input__row mt-4" :class="{ error: errors[0] }">
-              <input
-                v-model.lazy="form.email"
-                type="text"
-                placeholder="Email*"
-              />
+              <input v-model.lazy="email" type="text" placeholder="Email*" />
               <span>{{ errors[0] }}</span>
             </div>
           </ValidationProvider>
@@ -43,15 +39,17 @@
           >
             <div class="input__row mt-4" :class="{ error: errors[0] }">
               <input
-                v-model.lazy="form.pass"
+                v-model.lazy="password"
                 type="password"
                 placeholder="Password*"
               />
               <span>{{ errors[0] }}</span>
             </div>
           </ValidationProvider>
+          <!-- error  -->
+          <div class="error__message mt-10">{{ error }}</div>
           <!-- form buttons  -->
-          <div class="popup__buttons mt-12">
+          <div class="popup__buttons mt-2">
             <div @click="close" class="popup__button">Cancel</div>
             <button type="submit" class="popup__button popup__button__submit">
               {{ registration ? "Registrate" : "Sign in" }}
@@ -63,13 +61,13 @@
       <div class="mt-12">
         <template v-if="!registration"
           >Don’t have an account?
-          <span class="textlink" @click="registration = true"
+          <span class="textlink" @click="(registration = true), (error = null)"
             >Sign up</span
           ></template
         >
         <template v-else
           >I have an account
-          <span class="textlink" @click="registration = false"
+          <span class="textlink" @click="(registration = false), (error = null)"
             >Log in</span
           ></template
         >
@@ -86,26 +84,45 @@ export default {
   data() {
     return {
       registration: false,
-      form: {
-        name: "",
-        email: "",
-        pass: "",
-      },
+      // userName: "Anna",
+      // email: "anna@gmail.com",
+      // password: "666666",
+      userName: "",
+      email: "",
+      password: "",
+      error: null,
     };
   },
   methods: {
     onSubmit() {
       this.$refs.form.validate().then((success) => {
         if (success) {
-          this.sendMessage();
+          this.register();
         }
       });
     },
-    sendMessage() {
-      console.log(
-        "🚀 ~ file: popup.vue ~ line 46 ~ submit ~ this.registration",
-        this.registration
-      );
+    async register() {
+      try {
+        if (this.registration) {
+          await this.$axios.post("auth/register", {
+            userName: this.userName,
+            email: this.email,
+            password: this.password,
+          });
+        }
+
+        await this.$auth.loginWith("local", {
+          data: {
+            userName: this.userName,
+            password: this.password,
+          },
+        });
+
+        this.close();
+        this.$router.push("/computools");
+      } catch (e) {
+        this.error = e.response.data.message;
+      }
     },
   },
 };
@@ -155,6 +172,10 @@ export default {
   }
 }
 
+.error__message {
+  text-align: right;
+  color: $bg-red-600;
+}
 // input
 .input__row {
   position: relative;

@@ -1,6 +1,9 @@
 <template>
   <div class="main__page h-screen">
     <h1 class="text-5xl font-bold text-blue-900">Tests for all</h1>
+    <div class="main__page__links">
+      <nuxt-link to="/computools">Computools</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -12,8 +15,18 @@ export default {
 
 <style lang="scss" scoped>
 .main__page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 50px 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  &__links {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+    @include transitionAll;
+    a:hover {
+      color: $bg-green-700;
+    }
+  }
 }
 </style>

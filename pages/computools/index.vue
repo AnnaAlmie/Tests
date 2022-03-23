@@ -1,76 +1,33 @@
 <template>
   <div>
     <!-- header  -->
-    <header class="main__header text-white text-xl font-semibold bg-black">
-      <div class="logo__link">
-        <div class="logo">
-          <img
-            src="https://computools.com/wp-content/themes/computools/assets/img/computools-logo.svg"
-            alt=""
-          />
-        </div>
-        <a
-          href="https://computools.com/"
-          class="p-2.5 link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Computools
-        </a>
-      </div>
-      <div class="login link p-2.5" @click="popup = true">Log in</div>
-    </header>
-    <!-- end header  -->
-    <transition name="fade">
-      <ComputoolsPopupLogin
-        v-if="popup"
-        :close="
-          () => {
-            popup = false;
-          }
-        "
-      />
-    </transition>
+    <ComputoolsHeader />
+    <!-- end header -->
+    <div class="wrapper">
+      <ComputoolsEvents v-if="isAuthenticated" />
+      <div v-else class="mt-6 text-2xl font-bold">Authorization required.</div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "ComputoolsIndex",
   data() {
-    return {
-      popup: true,
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters(["isAuthenticated"]),
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.main__header {
-  text-transform: uppercase;
-  height: 50px;
-  @include flexBetween;
-  .logo__link {
-    @include flexStartCenter;
-    height: 100%;
-  }
-  .logo {
-    width: 84px;
-    height: inherit;
-    background: $color-compu;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      height: 22px;
-    }
-  }
-  .link {
-    transition: all 200ms ease-in-out;
-    cursor: pointer;
-    &:hover {
-      color: $color-compu;
-    }
-  }
+<style lang="scss">
+.wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 </style>
