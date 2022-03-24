@@ -1,0 +1,107 @@
+{ 
+    "0": { 
+        "name":"unranked",
+        "nameRu":"Новичок",
+        "image":"unranked"
+    },
+    "1": { 
+        "name":"iron1",
+        "nameRu":"Железо 1",
+        "image":"iron"
+    },
+    "2": { 
+        "name":"iron2",
+        "nameRu":"Железо 2",
+        "image":"iron"
+    },
+    "3": { 
+        "name":"iron3",
+        "nameRu":"Железо 3",
+        "image":"iron"
+    },
+    "4": { 
+        "name":"bronze1",
+        "nameRu":"Бронза 1",
+        "image":"bronze"
+    },
+    "5": { 
+        "name":"bronze",
+        "nameRu":"Бронза 2",
+        "image":"bronze"
+    },
+    "6": { 
+        "name":"bronze3",
+        "nameRu":"Бронза 3",
+        "image":"bronze"
+    },
+    "7": { 
+        "name":"silver1",
+        "nameRu":"Серебро 1",
+        "image":"silver"
+    },
+    "8": { 
+        "name":"silver2",
+        "nameRu":"Серебро 2",
+        "image":"silver"
+    },
+    "9": { 
+        "name":"silver3",
+        "nameRu":"Серебро 3",
+        "image":"silver"
+    },
+    "10": { 
+        "name":"gold1",
+        "nameRu":"Золото 1",
+        "image":"gold"
+    },
+    "11": { 
+        "name":"gold2",
+        "nameRu":"Золото 2",
+        "image":"gold"
+    },
+    "12": { 
+        "name":"gold3",
+        "nameRu":"Золото 3",
+        "image":"gold"
+    },
+    "13": { 
+        "name":"platinum1",
+        "nameRu":"Платина 1",
+        "image":"platinum"
+    },
+    "14": { 
+        "name":"plat2",
+        "nameRu":"Платина 2",
+        "image":"platinum"
+    },
+    "15": { 
+        "name":"plat3",
+        "nameRu":"Платина 3",
+        "image":"platinum"
+    },
+    "16": { 
+        "name":"diamond1",
+        "nameRu":"Алмаз 1",
+        "image":"diamond"
+    },
+    "17": { 
+        "name":"diamond2",
+        "nameRu":"Алмаз 2",
+        "image":"diamond"
+    },
+    "18": { 
+        "name":"diamond3",
+        "nameRu":"Алмаз 3",
+        "image":"diamond"
+    },
+    "19": { 
+        "name":"immortal",
+        "nameRu":"Бессмертный",
+        "image":"immortal"
+    },
+    "20": { 
+        "name":"radiant",
+        "nameRu":"Радиант",
+        "image":"radiant"
+    }
+}

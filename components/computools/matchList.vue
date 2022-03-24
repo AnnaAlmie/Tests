@@ -57,8 +57,5 @@ export default {
   &__header {
     @include flexBetweenCenter;
   }
-  .accordion__body {
-    margin-top: 20px;
-  }
 }
 </style>

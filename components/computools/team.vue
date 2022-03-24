@@ -14,7 +14,25 @@
         >
           <p>Имя: {{ `${player.firstName} ${player.lastName}` }}</p>
           <p>Ник: {{ player.userName }}</p>
-          <p>Максимальный ранг: {{ player.valorantProfiles[0].maxRank }}</p>
+          <p>
+            Pанг:
+            {{
+              player.valorantProfiles[0]
+                ? rankList[player.valorantProfiles[0].maxRank].nameRu
+                : "Новичок"
+            }}
+          </p>
+          <img
+            :src="
+              require(`@/assets/img/computools/rank/${
+                player.valorantProfiles[0]
+                  ? rankList[player.valorantProfiles[0].maxRank].image
+                  : 'unranked'
+              }.png`)
+            "
+            alt=""
+            class="team__block__img"
+          />
         </div>
       </div>
     </div>
@@ -32,7 +50,25 @@
         >
           <p>Имя: {{ `${player.firstName} ${player.lastName}` }}</p>
           <p>Ник: {{ player.userName }}</p>
-          <p>Максимальный ранг: {{ player.valorantProfiles[0].maxRank }}</p>
+          <p>
+            Pанг:
+            {{
+              player.valorantProfiles[0]
+                ? rankList[player.valorantProfiles[0].maxRank].nameRu
+                : "Новичок"
+            }}
+          </p>
+          <img
+            :src="
+              require(`@/assets/img/computools/rank/${
+                player.valorantProfiles[0]
+                  ? rankList[player.valorantProfiles[0].maxRank].image
+                  : 'unranked'
+              }.png`)
+            "
+            alt=""
+            class="team__block__img"
+          />
         </div>
       </div>
     </div>
@@ -40,10 +76,13 @@
 </template>
 
 <script>
+import rankList from "@/json/computools/rank";
 export default {
   props: ["teams"],
   data() {
-    return {};
+    return {
+      rankList,
+    };
   },
   computed: {
     attackers() {
@@ -64,6 +103,8 @@ export default {
     width: calc(50% - 10px);
   }
   &__block {
+    position: relative;
+    overflow: hidden;
     padding: 10px;
     margin-top: 10px;
     &.attack {
@@ -71,6 +112,16 @@ export default {
     }
     &.defend {
       border: 1px solid $bg-green-700;
+    }
+    &__img {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(38%, -50%);
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
     }
   }
 }
