@@ -1,0 +1,22 @@
+{
+    "active" : {
+       "name": "Активный",
+       "color": "#1d4ed8"
+
+    },
+    "inactive" : {
+        "name": "Не активный",
+        "color": "#b91c1c"
+ 
+    },
+    "pending" : {
+        "name": "Подготовка",
+        "color": "#fbbf24"
+ 
+    },
+    "finished" : {
+        "name": "Окончен",
+        "color": "#10b981"
+ 
+    }
+}

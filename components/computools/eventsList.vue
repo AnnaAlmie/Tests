@@ -1,7 +1,7 @@
 <template>
   <div class="event__block">
     <div>
-      <p>
+      <p class="text__overflow" style="width: 180px">
         <b>{{ play.name }}</b>
       </p>
       <p>Старт: {{ startDate }}</p>
@@ -15,14 +15,22 @@
         <svgIcon name="players" class="event__block__players__icon" />
         <span v-text="play.playersToPlay.length"></span>
       </p>
-      <p>{{ play.status }}</p>
+      <p :style="`color: ${status.color}`">
+        {{ status.name ? status.name : status }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import statusRu from "@/json/computools/status";
 export default {
   props: ["play"],
+  data() {
+    return {
+      statusRu,
+    };
+  },
   computed: {
     startDate() {
       return new Date(this.play.startDate)
@@ -35,6 +43,11 @@ export default {
     countFinished() {
       return this.play.matches.filter((match) => match.status == "finished")
         .length;
+    },
+    status() {
+      return this.statusRu[this.play.status]
+        ? this.statusRu[this.play.status]
+        : this.play.status;
     },
   },
 };
@@ -54,7 +67,7 @@ export default {
     }
     &.selected,
     &:hover {
-      border-color: $color-compu;
+      box-shadow: inset 0px 0px 0px 2px $color-compu;
     }
     &__players {
       @include flexBetweenCenter;

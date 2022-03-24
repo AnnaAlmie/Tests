@@ -15,9 +15,21 @@
         />
       </div>
       <!-- right column -->
-      <div class="w-3/5 m-5">
+      <div class="w-3/5 mt-5">
         <p>Организатор: {{ events.data[selectedEvent].organizer.userName }}</p>
-        {{ events.data[selectedEvent].matches }}
+        <div
+          v-if="!events.data[selectedEvent].matches.length"
+          class="mt-2 font-semibold"
+        >
+          Матчей пока нет
+        </div>
+        <ComputoolsMatchList
+          v-else
+          v-for="match in events.data[selectedEvent].matches"
+          :key="match.id"
+          :match="match"
+          class="mt-2.5"
+        />
       </div>
     </div>
   </div>
