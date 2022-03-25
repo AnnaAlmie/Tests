@@ -41,7 +41,9 @@ export default {
   methods: {
     async getOneMatch() {
       try {
-        this.matchInfo = await this.$axios.get(`match/${this.match.id}`);
+        this.matchInfo = await this.$axios.get(
+          `${process.env.COMPU_API}/match/${this.match.id}`
+        );
       } catch (e) {
         console.log(e.response.data.message);
       }

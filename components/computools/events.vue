@@ -50,7 +50,7 @@ export default {
   methods: {
     async getEvents() {
       try {
-        this.events = await this.$axios.get("events/");
+        this.events = await this.$axios.get(`${process.env.COMPU_API}/events/`);
       } catch (e) {
         this.error = e.response.data.message;
       }

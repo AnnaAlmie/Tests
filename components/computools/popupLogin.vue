@@ -104,7 +104,7 @@ export default {
     async register() {
       try {
         if (this.registration) {
-          await this.$axios.post("auth/register", {
+          await this.$axios.post(`${process.env.COMPU_API}/auth/register`, {
             userName: this.userName,
             email: this.email,
             password: this.password,

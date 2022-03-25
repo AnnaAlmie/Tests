@@ -1,3 +1,5 @@
+require('dotenv').config;
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -45,13 +47,14 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios', 
     '@nuxtjs/auth', 
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://134.209.242.132:3000/',
+    baseURL: '/',
   },
   auth: {
     strategies: {
@@ -68,9 +71,9 @@ export default {
         }, 
         endpoints: {
           // propertyName: 'the name of the token object that comes back from this API request'
-          login: { url: 'auth/login', method: 'post', propertyName: 'accessToken' },
-          logout: { url: 'auth/login', method: 'get' },
-          user: { url: 'auth/me', method: 'get', propertyName: '' }
+          login: { url: `${process.env.COMPU_API}/auth/login`, method: 'post', propertyName: 'accessToken' },
+          logout: { url: `${process.env.COMPU_API}/auth/login`, method: 'get' },
+          user: { url: `${process.env.COMPU_API}/auth/me`, method: 'get', propertyName: '' }
         }
       }
     }
