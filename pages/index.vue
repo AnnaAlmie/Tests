@@ -3,6 +3,7 @@
     <h1 class="text-5xl font-bold text-blue-900">Tests for all</h1>
     <div class="main__page__links">
       <nuxt-link to="/computools">Computools</nuxt-link>
+      <nuxt-link to="/chest">Chest</nuxt-link>
     </div>
   </div>
 </template>
@@ -24,8 +25,11 @@ export default {
     font-weight: 500;
     text-decoration: underline;
     @include transitionAll;
-    a:hover {
-      color: $bg-green-700;
+    a {
+      display: block;
+      &:hover {
+        color: $bg-green-700;
+      }
     }
   }
 }

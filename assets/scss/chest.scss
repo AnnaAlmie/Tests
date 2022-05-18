@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "a_BremenCaps";
+    src: url(~/assets/fonts/A_BREMENCAPS_REGULAR.TTF) format("opentype");
+   }
+.chest {
+    font-family: "a_BremenCaps";
+    text-transform: uppercase;
+}
+.button {
+    font-size: 36px;
+    color: rgb(82, 49, 27);
+    line-height: 1.867;
+    text-align: center;
+    background: url(~/assets/img/chest/button.png) no-repeat;
+    background-size: contain;
+    width: 227px;
+    height: 69px;
+    transition: all .2s ease-in-out;
+    &:not(.lock) {
+        cursor: pointer;
+    }
+    &.lock {
+        filter: grayscale(1);
+    }
+      
+}

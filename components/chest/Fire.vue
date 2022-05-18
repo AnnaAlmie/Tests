@@ -1,0 +1,77 @@
+<template>
+  <div class="flame__block">
+    <img src="@/assets/img/chest/fire.png" />
+    <div class="flame">
+      <div class="fire">
+        <div class="particle" v-for="(item, index) in 50" :key="index"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss" scoped>
+.flame {
+  position: absolute;
+  top: -23%;
+  right: 6%;
+  opacity: 0.9;
+  &__block {
+    position: fixed;
+    left: 0;
+  }
+}
+
+// https://codepen.io/jkantner/pen/gKRKKb
+$fireColor: rgb(255, 80, 0);
+$fireColorT: rgba(255, 80, 0, 0);
+$dur: 1s;
+$blur: 0.02em;
+$fireRad: 3em;
+$parts: 50;
+$partSize: 5em;
+
+.fire {
+  font-size: 24px;
+  filter: blur($blur);
+  -webkit-filter: blur($blur);
+  margin: 3em auto 0 auto;
+  position: relative;
+  width: 10em;
+  height: 12em;
+}
+.particle {
+  animation: rise $dur ease-in infinite;
+  background-image: radial-gradient($fireColor 20%, $fireColorT 70%);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  width: $partSize;
+  height: $partSize;
+  // spread particles out in time and x-position to get desired effect
+  @for $p from 1 through $parts {
+    &:nth-of-type(#{$p}) {
+      animation-delay: $dur * random();
+      left: calc((100% - #{$partSize}) * #{calc(($p - 1) / $parts)});
+    }
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
+}
+</style>
